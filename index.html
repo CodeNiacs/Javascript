@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script>
+function checkFormulier()
+{
+    var formulier_waarde = document.forms[ "antwoordFormulier" ][ "cursusNaam" ].value;
+    if ( formulier_waarde != "Typescript" )
+    {
+        alert( formulier_waarde + " is niet de correcte naam van de cursus" );
+        return false;
+    }
+    else
+    {
+        alert( "Goed zo!" );
+        return true;
+    }
+}
+</script>
+<body>
+
+    <h2>De Typescript cursus kent de volgende levels</h2>
+    <ul id="levels"></ul>
+
+    <script>
+    var levels = [ "Javascript", "Functies", "Objecten", "Frameworks", "Typescript" ];
+    var teller = 0;
+    var text = "";
+    for ( ; levels[ teller ] ; )
+    {
+        text += "<li>" + levels[ teller ] + "</li>";
+        teller++;
+    }
+    document.getElementById( "levels" ).innerHTML = text;
+    </script>
+
+    <button type="button" onclick="window.alert('Schrijf je in op elo.codeniacs.nl!')">Doe mee!</button>
+    <hr>
+    <form name="antwoordFormulier" action="index.php" onsubmit="return checkFormulier()" method="post">
+        Naam cursus: <input type="text" name="cursusNaam">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
